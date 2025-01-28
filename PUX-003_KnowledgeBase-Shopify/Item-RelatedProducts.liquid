@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="{{ 'component-card.css' | asset_url }}" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<div class="page-width page-width--narrow">
+
+<div class="h2">Produkte</div>
+
+  {% assign related-products =  page.metafields.custom.produkte.value %}
+  {% if related-products != blank %}
+    <related-products class="related-products related-products--loaded page-width" data-url="{{ routes.related-products_url }}">
+      <ul class="grid product-grid" role="list">
+        {% for recommendation in related-products %}
+          <li class="">
+            {% render 'card-product',card_product: recommendation,show_secondary_image:true,show_vendor:false,show_rating:false
+            %}
+          </li>
+        {% endfor %}
+      </ul>
+    </related-products>
+  {% endif %}
+</div>

@@ -1,0 +1,28 @@
+{% comment %} 
+  MyFields
+{% endcomment %}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign current_product = product %}
+
+{% if current_product.tags contains "CustomFields" %}
+
+<div class="uniforxCustomFields">
+
+    <h4>Dein Wunsch</h4>
+    
+    <div class="product-form__input" id="custom-prop-1">
+      <label class="form__label" for="custom-text-1" id="custom-text-1-label">URL als Referenz</label>
+      <input class="" placeholder="" value="" type="text" id="custom-text-1" form="product-form-{{ section.id }}" name="properties[Url]" />
+    </div>
+
+    <div class="product-form__input" id="custom-prop-2">
+      <label class="form__label" for="custom-text-2" id="custom-text-2-label">Zusatzinfo</label>
+      <textarea class="" placeholder="" value="" type="text" id="custom-text-2" form="product-form-{{ section.id }}" name="properties[Info]"></textarea>
+    </div>
+  </div>
+
+<script>
+
+</script>
+{% endif %}
