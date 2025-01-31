@@ -1,0 +1,28 @@
+<script>
+console.log('faq v1.0');
+
+let faqAnswers = document.querySelector('#MainContent').getElementsByTagName('p');
+for (let i = 0; i < faqAnswers.length; i++) {
+    faqAnswers[i].hidden = true;
+}
+
+let faqQuestions = document.querySelector('#MainContent').getElementsByTagName('h2');
+for (let i = 0; i < faqQuestions.length; i++) {
+
+faqQuestions[i].addEventListener('click', (event) => {
+        const faqQuestion = event.target.nextElementSibling;
+        console.log(faqQuestion.hidden);
+        if (faqQuestion.hidden === true) {
+            faqQuestion.hidden = false;
+        } else {
+            faqQuestion.hidden = true;
+        }
+    });
+}
+</script>
+
+<style>
+.accordion details[open] {
+background: #EEEEEE;
+}
+</style>
