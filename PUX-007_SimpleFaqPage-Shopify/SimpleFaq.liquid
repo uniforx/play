@@ -10,7 +10,11 @@ let faqQuestions = document.querySelector('#MainContent').getElementsByTagName('
 for (let i = 0; i < faqQuestions.length; i++) {
 
 faqQuestions[i].addEventListener('click', (event) => {
-        const faqQuestion = event.target.nextElementSibling;
+        let el = event.target;
+        while (el && el.parentNode && el.tagName !== 'H2') {
+            el = el.parentNode;
+        }
+        const faqQuestion = el.nextElementSibling;
         console.log(faqQuestion.hidden);
         if (faqQuestion.hidden === true) {
             faqQuestion.hidden = false;
@@ -22,7 +26,13 @@ faqQuestions[i].addEventListener('click', (event) => {
 </script>
 
 <style>
-.accordion details[open] {
-background: #EEEEEE;
-}
+    .accordion details[open] {
+        background: #EEEEEE;
+    }
+    h2 {
+        cursor: pointer;
+        border: 1px solid #000000;
+        border-radius: 6px;
+        padding: 3px;
+    }
 </style>
